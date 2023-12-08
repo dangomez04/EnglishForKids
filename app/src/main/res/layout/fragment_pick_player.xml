@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".PickPlayer" >
+
+    <Spinner
+        android:id="@+id/spinnerPlayers"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:translationX="80dp"
+        android:translationY="250dp" />
+
+    <Button
+        android:id="@+id/buttonConfirmar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:backgroundTint="@color/black"
+        android:text="Confirmar"
+        android:textColor="@color/white"
+        android:translationX="-120dp"
+        android:translationY="320dp" />
+</LinearLayout>

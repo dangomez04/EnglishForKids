@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".NewPlayer" >
+
+    <EditText
+        android:id="@+id/editNombreJugador"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:ems="10"
+        android:hint="Nombre"
+        android:inputType="text"
+        android:translationX="80dp"
+        android:translationY="250dp"
+        android:textColor="@color/black"
+        />
+
+    <Button
+        android:id="@+id/buttonAdd"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:backgroundTint="@color/black"
+        android:text="Aceptar"
+        android:textColor="@color/white"
+        android:translationX="-120dp"
+        android:translationY="320dp" />
+</LinearLayout>
