@@ -24,10 +24,6 @@ class MainActivity : AppCompatActivity() {
         val toolbar: Toolbar = findViewById(R.id.toolbar_main)
         setSupportActionBar(toolbar)
         window.statusBarColor=Color.BLACK
-        var helper = SqlHelper(this)
-        var db = helper.writableDatabase
-
-
 
 
 

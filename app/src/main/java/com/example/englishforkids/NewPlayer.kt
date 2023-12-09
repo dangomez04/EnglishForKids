@@ -33,11 +33,23 @@ class NewPlayer(var supportActionBar : ActionBar?) : Fragment() {
                 Toast.makeText(requireContext(),"El campo nombre es obligatorio",Toast.LENGTH_SHORT).show()
 
             }else{
+                var nuevoUsuario = Users(editNombreJugador.text.toString(),0,1)
+                val helper = SqlHelper(requireContext())
+                val db = helper.writableDatabase
+
+                val queryInsertarUsuario = "INSERT INTO users (name, score, id_level) VALUES ('${nuevoUsuario.name}', ${nuevoUsuario.score}, ${nuevoUsuario.id_level})"
+                db.execSQL(queryInsertarUsuario)
+
+
+
+
                 Toast.makeText(requireContext(),"Perfil creado correctamente",Toast.LENGTH_SHORT).show()
                 parentFragmentManager?.beginTransaction()
                     ?.replace(R.id.fragmentContainerView, InitialFragment())
                     ?.commit()
                 supportActionBar?.title ="EnglishForKids"
+
+                db.close()
 
             }
 

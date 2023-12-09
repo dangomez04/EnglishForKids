@@ -3,13 +3,15 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".PickPlayer" >
+    tools:context=".PickPlayer">
 
     <Spinner
         android:id="@+id/spinnerPlayers"
         android:layout_width="200dp"
         android:layout_height="wrap_content"
         android:layout_weight="1"
+        android:backgroundTint="#000000"
+        android:foregroundTint="#000000"
         android:translationX="80dp"
         android:translationY="250dp" />
 
