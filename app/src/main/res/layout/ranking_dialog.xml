@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#FFE5E5E5">
+
+    <!-- Encabezado de la tabla -->
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#FFF2FBEF"
+        android:gravity="center"
+        android:padding="16dp"
+        android:text="Score Ranking"
+        android:textColor="#FF00897B"
+        android:textSize="24sp"
+        android:textStyle="bold" />
+
+    <!-- Tabla -->
+    <TableLayout
+        android:id="@+id/tableLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="8dp"
+        android:stretchColumns="*">
+
+        <!-- Fila del encabezado -->
+        <TableRow>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="8dp"
+                android:text="Position"
+                android:textColor="#FF00897B"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="8dp"
+                android:text="Name"
+                android:textColor="#FF00897B"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="8dp"
+                android:text="Score"
+                android:textColor="#FF00897B"
+                android:textStyle="bold" />
+        </TableRow>
+
+        <!-- Ejemplo de fila de datos -->
+        <TableRow/>
+
+        <!-- Puedes agregar más filas según la cantidad de datos -->
+
+    </TableLayout>
+</LinearLayout>

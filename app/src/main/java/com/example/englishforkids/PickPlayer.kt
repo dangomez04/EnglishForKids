@@ -9,8 +9,9 @@ import android.widget.ArrayAdapter
 import android.widget.Button
 import android.widget.Spinner
 import android.widget.Toast
+import androidx.appcompat.app.ActionBar
 
-class PickPlayer : Fragment() {
+class PickPlayer(var supportActionBar : ActionBar?) : Fragment() {
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -38,7 +39,6 @@ class PickPlayer : Fragment() {
             }
             cursor.close()
         }
-        db.close()
 
 
         // Crear un ArrayAdapter utilizando el contexto y el diseño predeterminado para los elementos del Spinner
@@ -56,11 +56,12 @@ class PickPlayer : Fragment() {
 
             Toast.makeText(requireContext(),"Perfil $usuarioSeleccionado cargado correctamente", Toast.LENGTH_SHORT).show()
             parentFragmentManager?.beginTransaction()
-                ?.replace(R.id.fragmentContainerView, LevelFragment(usuarioSeleccionado))
+                ?.replace(R.id.fragmentContainerView, LevelFragment(usuarioSeleccionado, supportActionBar))
                 ?.commit()
         }
 
 
+        db.close()
 
         return view
     }

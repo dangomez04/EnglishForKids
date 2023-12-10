@@ -44,7 +44,6 @@ class SqlHelper (context: Context) : SQLiteOpenHelper(context, "EnglishForKids.d
             db?.execSQL(queryInsertarNiveles)
         }
 
-        db?.close()
 
 
     }
