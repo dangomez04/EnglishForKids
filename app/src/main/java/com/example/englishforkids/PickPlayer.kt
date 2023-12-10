@@ -54,7 +54,7 @@ class PickPlayer(var supportActionBar : ActionBar?) : Fragment() {
         buttonConfirmar.setOnClickListener {
             val usuarioSeleccionado = spinner.selectedItem.toString()
 
-            Toast.makeText(requireContext(),"Perfil $usuarioSeleccionado cargado correctamente", Toast.LENGTH_SHORT).show()
+            Toast.makeText(requireContext(),"Profile $usuarioSeleccionado loaded succesfully", Toast.LENGTH_SHORT).show()
             parentFragmentManager?.beginTransaction()
                 ?.replace(R.id.fragmentContainerView, LevelFragment(usuarioSeleccionado, supportActionBar))
                 ?.commit()
