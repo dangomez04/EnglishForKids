@@ -34,6 +34,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        // le inflo al menu su correspondiente xml
         menuInflater.inflate(R.menu.menu, menu)
 
 
@@ -44,16 +45,20 @@ class MainActivity : AppCompatActivity() {
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        val transaction =
-            supportFragmentManager.beginTransaction()
+
+        // items del menu, cuando se pulse en x item te llevara al fragmento correspondiente
+        // Ademas, cambio el titulo de la toolbar segun corresponda
 
         return when (item.itemId) {
+
+
             R.id.itemNewPlayer -> {
                 val fragment = NewPlayer(supportActionBar)
                 supportFragmentManager.beginTransaction()
                     .replace(R.id.fragmentContainerView, fragment)
                     .addToBackStack(null)
                     .commit()
+
                 supportActionBar?.title="Crear Nuevo Jugador"
 
                 true
@@ -70,10 +75,12 @@ class MainActivity : AppCompatActivity() {
             }
 
             R.id.itemRanking -> {
+                // lista de objetos de users que determinara el numero de filas que voy a insertar en la tabla
                 var listaUsuarios = mutableListOf<Users>()
-
+                // creo dialogo  y le asigno su xml
                 val dialog = Dialog(this)
                 dialog.setContentView(R.layout.ranking_dialog)
+                // hago query para obtener los usuarios ordenados descendentemente por puntuacion
                 val helper = SqlHelper(this)
                 val db = helper.readableDatabase
 
@@ -87,14 +94,21 @@ class MainActivity : AppCompatActivity() {
                         listaUsuarios.add(objetoUsuario)
                     }
                     cursor.close()
+
                 }
+                db.close()
 
-
+                // recojo el tableLayout de mi xml del dialogo (ranking_dialog)
                 val tableLayout = dialog.findViewById<TableLayout>(R.id.tableLayout)
+                // variable que me sirve para darle una poisicion a cada fila
                 var position = 1
 
+                // recorro mi lista de usuarios para ir creando dinamicamente las filas de la tabla
                 for (usuario in listaUsuarios) {
+                    //creo una fila
                     val row = TableRow(this)
+                    // esto lo uso para transformar de dp a pixel ya que en mi xml del ranking puse por defecto una fila
+                    // con estilos, entonces para conseguir el mismo padding necesito esta conversion
                     val params = TableRow.LayoutParams(
                         TableRow.LayoutParams.MATCH_PARENT,
                         TableRow.LayoutParams.WRAP_CONTENT
@@ -103,26 +117,33 @@ class MainActivity : AppCompatActivity() {
                     val scale = resources.displayMetrics.density
                     val dpValue = 8
                     val paddingPixel = (dpValue * scale + 0.5f).toInt()
-
+                    //
+                    //creo un textview que contendra la posicion y le aplico estilos
                     val positionTextView = TextView(this)
                     positionTextView.text = position.toString()
                     positionTextView.setPadding(paddingPixel, paddingPixel, paddingPixel, paddingPixel)
                     positionTextView.setTextColor(Color.parseColor("#FF1E88E5"))
+                    //le agrego el textview a la fila
                     row.addView(positionTextView)
 
+                    //creo un textview que contendra el nombre del usuario y le aplico estilos
                     val userNameTextView = TextView(this)
                     userNameTextView.text = usuario.name
                     userNameTextView.setPadding(paddingPixel, paddingPixel, paddingPixel, paddingPixel)
                     userNameTextView.setTextColor(Color.parseColor("#FF1E88E5"))
+                    //le agrego el textview a la fila
                     row.addView(userNameTextView)
 
+                    //creo un textview que contendra la puntuacion del usuario y le aplico estilos
                     val scoreTextView = TextView(this)
                     scoreTextView.text = "\uD83C\uDF1F " + usuario.score.toString()
                     scoreTextView.setPadding(paddingPixel, paddingPixel, paddingPixel, paddingPixel)
                     scoreTextView.setTextColor(Color.parseColor("#FF1E88E5"))
+                    //le agrego el textview a la fila
                     row.addView(scoreTextView)
-
+                    //le agrego al tableLayout la fila que he creado
                     tableLayout.addView(row)
+                    // incremento en 1 la posicion para la siguiente fila
                     position++
                 }
 

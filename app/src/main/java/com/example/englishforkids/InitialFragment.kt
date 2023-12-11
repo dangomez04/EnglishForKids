@@ -8,7 +8,7 @@ import android.view.ViewGroup
 
 
 
-
+// este es mi fragmento inicial, que se mostrara al abrir la aplicacion
 class InitialFragment : Fragment() {
 
 
@@ -22,7 +22,7 @@ class InitialFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
+
         return inflater.inflate(R.layout.fragment_initial, container, false)
 
     }

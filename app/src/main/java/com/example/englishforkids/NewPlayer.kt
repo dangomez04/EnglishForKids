@@ -23,12 +23,13 @@ class NewPlayer(var supportActionBar : ActionBar?) : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-
+        // inflo el layout de mi fragmento y recojo las variables del xml del fragmento
         val view = inflater.inflate(R.layout.fragment_new_player, container, false)
         val buttonAceptar = view.findViewById<Button>(R.id.buttonAdd)
         var editNombreJugador = view.findViewById<EditText>(R.id.editNombreJugador)
         var nombresUsuarios = mutableListOf<String>()
 
+        // hago una query que me servira como validacion para comprobar si el nombre de usuario intorducido ya existe
         val helper = SqlHelper(requireContext())
         val db = helper.readableDatabase
 
@@ -57,7 +58,7 @@ class NewPlayer(var supportActionBar : ActionBar?) : Fragment() {
             }else{
                 var nuevoUsuario = Users(editNombreJugador.text.toString(),0,1)
 
-
+                // despues de las validaciones correspondientes hago la insercion en mi bbdd
                 val queryInsertarUsuario = "INSERT INTO users (name, score, id_level) VALUES ('${nuevoUsuario.name}', ${nuevoUsuario.score}, ${nuevoUsuario.id_level})"
                 db.execSQL(queryInsertarUsuario)
 
@@ -65,9 +66,11 @@ class NewPlayer(var supportActionBar : ActionBar?) : Fragment() {
 
 
                 Toast.makeText(requireContext(),"Profile created successfully",Toast.LENGTH_SHORT).show()
+                // redirigo al fragmento inicial una vez se ha creado correctamente el usuario
                 parentFragmentManager?.beginTransaction()
                     ?.replace(R.id.fragmentContainerView, InitialFragment())
                     ?.commit()
+                // cambio el titulo de la toolbar para que al volver al fragmento inicial el titulo sea el nombre de la aplicacion
                 supportActionBar?.title ="EnglishForKids"
 
                 db.close()
