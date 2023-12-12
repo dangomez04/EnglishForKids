@@ -5,7 +5,6 @@
     android:orientation="vertical"
     android:background="#FFE5E5E5">
 
-    <!-- Encabezado de la tabla -->
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -17,7 +16,6 @@
         android:textSize="24sp"
         android:textStyle="bold" />
 
-    <!-- Tabla -->
     <TableLayout
         android:id="@+id/tableLayout"
         android:layout_width="match_parent"
@@ -25,7 +23,6 @@
         android:padding="8dp"
         android:stretchColumns="*">
 
-        <!-- Fila del encabezado -->
         <TableRow>
 
             <TextView
@@ -53,10 +50,7 @@
                 android:textStyle="bold" />
         </TableRow>
 
-        <!-- Ejemplo de fila de datos -->
         <TableRow/>
-
-        <!-- Puedes agregar más filas según la cantidad de datos -->
 
     </TableLayout>
 </LinearLayout>
