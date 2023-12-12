@@ -131,7 +131,7 @@ class LevelFragment(var usuarioSeleccionado : String, var supportActionBar : Act
                Toast.makeText(requireContext(), "Congratulations!", Toast.LENGTH_SHORT).show()
 
 
-               buttonNext.setBackgroundColor(Color.parseColor("#FFD700"))
+               buttonNext.setBackgroundColor(Color.parseColor("#e8cb2f"))
            } else if(editAnswer.text.toString() == ""){
                Toast.makeText(requireContext(),"This field is required",Toast.LENGTH_SHORT).show()
 

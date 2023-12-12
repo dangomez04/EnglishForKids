@@ -22,13 +22,12 @@
             android:fontFamily="@font/aclonica"
             android:gravity="center"
             android:padding="16dp"
-            android:text="Acerca De"
+            android:text="About"
             android:textAlignment="center"
             android:textColor="#FF00897B"
             android:textSize="24sp"
             android:textStyle="bold"
-            app:layout_constraintBottom_toTopOf="@+id/imageView3"
-             />
+            app:layout_constraintBottom_toTopOf="@+id/imageView3" />
 
         <TextView
             android:id="@+id/textNombre"

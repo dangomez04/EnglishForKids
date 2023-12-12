@@ -59,7 +59,7 @@ class MainActivity : AppCompatActivity() {
                     .addToBackStack(null)
                     .commit()
 
-                supportActionBar?.title="Crear Nuevo Jugador"
+                supportActionBar?.title="Create a new player"
 
                 true
             }
@@ -70,7 +70,7 @@ class MainActivity : AppCompatActivity() {
                     .replace(R.id.fragmentContainerView, fragment)
                     .addToBackStack(null)
                     .commit()
-                supportActionBar?.title="Seleccionar Jugador"
+                supportActionBar?.title="Pick a user"
                 true
             }
 
@@ -155,7 +155,7 @@ class MainActivity : AppCompatActivity() {
             R.id.itemAbout -> {
                 val dialog = Dialog(this)
                 dialog.setContentView(R.layout.about_dialog)
-                dialog.setTitle("Acerca De")
+                dialog.setTitle("About")
                 dialog.show()
                 true
             }
